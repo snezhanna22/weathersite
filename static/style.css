@@ -1,0 +1,153 @@
+:root {
+    --color1: #f1f777,
+    --color2: #30c8de,
+}
+
+body{
+    background-color: #DBF0EF;
+}
+
+main{
+    height: calc(100% - 150px);
+}
+
+.footer{
+    margin-top: auto; 
+    margin-bottom: 0; 
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.dropdown-menu li .dropdown-item:hover{
+    background: rgb(241,247,119);
+    background: radial-gradient(circle, rgba(241,247,119,1) 0%, rgba(48,200,222,1) 100%);
+}
+
+li.nav-item:hover{
+    transform: scale(1.1);
+}
+
+a.nav-link:active{
+    color: #558FE2;
+}
+
+ul .dropdown-menu li a:active{
+    color: #558FE2;
+}
+
+h2{
+    color: #073B95;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.footer{
+    padding: 20px 0;
+}
+
+header, footer {
+    background: rgb(241,247,119);
+    background: radial-gradient(circle, rgba(241,247,119,1) 0%, rgba(48,200,222,1) 100%);
+}
+
+.dropdown-menu{
+    background: rgb(241,247,119);
+    background: radial-gradient(circle, rgba(241,247,119,1) 0%, rgba(48,200,222,1) 100%);
+}
+.card img{
+    height: 340px;
+}
+.card{
+    margin-bottom: 20px;
+}
+
+.card-body{
+    max-height: 200px;
+}
+
+.card-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.info_text {
+    background-color: #B9DCEC ;
+    padding: 20px 20px;
+}
+p{
+    margin-bottom: 0;
+}
+
+.info-city{
+    background-color: #B9DCEC ;
+    padding: 20px 20px;
+    margin: 50px 0;
+}
+
+.contact-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.icon-weather{
+    background-color: transparent;
+    max-width: 200px;
+    display: block;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px){
+    .card {
+        margin: 0 auto 20px;
+        width:100%;
+    }
+    .card img{
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .card {
+        margin: 0 auto 10px;
+        width: 90%;
+    }
+    .card img {
+        width: 100%;
+        height: 260px
+    }
+}
+
+
+
+h2.news-head{
+    margin-top: 75px;
+    text-align: center;
+}
+
+.search-form{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form-label { 
+    margin-right: 10px;
+}
+
+.btn-form {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin-left: 10px;
+}

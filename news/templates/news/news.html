@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+  <section class="news">
+    <h2 class="news-head">Самые интересные статьи</h2>
+    <div class="container ">
+      <div class="row">
+        <div class="search-form">
+          <div class="col-xs-10 col-sm-8 col-lg-5">
+
+            <form class="d-flex" role="search" action="{% url "news:show_news" %}">
+              <input class="form-control me-2" name="search" type="search" placeholder="Поиск по статье..." aria-label="Поиск">
+              <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+       <div class="row">
+        {% for p in page %}
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="card">
+            {% if p.images %}<img src= "{{ p.images.url }}" class="card-img-top" alt="images">{% else %}<img src= "{% static "images/default.png" %}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ p.title|truncatechars:35 }}</h5>
+              <p class="card-text">{{ p.content }}</p>
+              <a href="{{ p.get_absolute_url }}" class="btn btn-primary mt-3">Читать далее..</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+          </div>
+        </div>
+       </div>
+    </div>
+
+    {% if is_paginated %}
+      <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+          <li class="page-item {% if not prev_url %} disabled{% endif %}">
+            <a class="page-link" href="{{ prev_url }}">Предыдущая</a>
+          </li>
+          {% for n in page.paginator.page_range %}
+          {% if page.number == n %}
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+          </li>
+          {% elif n < page.number|add:3 and n > page.number|add:-3 %}
+          <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+          {% endif %}
+          {% endfor %}
+          <li class="page-item {% if not next_url %}disabled{% endif %}">
+            <a class="page-link" href="{{ next_url }}">Следующая</a>
+          </li>
+        </ul>
+      </nav>
+    {% endif %}
+  </section>
+</main>
+{% endblock content %}
